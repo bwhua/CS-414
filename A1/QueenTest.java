@@ -1,10 +1,14 @@
+import org.junit.Test;
+
 public class QueenTest {
 
+  @Test
   public void testLegalMoves(){
     ChessBoard testBoard = new ChessBoard();
-    Queen testQueen = new Queen();
-    testQueen.color = ChessPiece.Color.WHITE;
+    Queen testQueen = new Queen(testBoard, ChessPiece.Color.WHITE);
     testBoard.placePiece(testQueen, "d4");
-    //todo: make sure arraylist is empty
+
+    assert(testQueen.legalMoves().isEmpty());
+
   }
 }
