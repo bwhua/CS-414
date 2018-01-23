@@ -2,10 +2,11 @@ import java.util.ArrayList;
 
 
 public class Pawn extends ChessPiece{
+	boolean firstMove;
 
 	public Pawn(ChessBoard board, Color color) {
 		super(board, color);
-		// TODO Auto-generated constructor stub
+		firstMove = true;
 	}
 
 	@Override
@@ -21,37 +22,16 @@ public class Pawn extends ChessPiece{
 	public ArrayList<String> legalMoves() {
 		ArrayList<String> legal = new ArrayList<String>(); 
 		
-		String position = "";
-		switch(column){
-		case 0: position = "a";
-			break;
-		case 1: position = "b";
-			break;
-		case 2: position = "c";
-			break;
-		case 3: position = "d";
-			break;
-		case 4: position = "e";
-			break;
-		case 5: position = "f";
-			break;
-		case 6: position = "g";
-			break;
-		case 7: position = "h";
-			break;
-		default:
-			break;
-		}
+		String position = toChar();
+
 		if(color == Color.WHITE){
 			
 			
-			if(row == 1 ){															//beginning moves
+			if(firstMove){															//beginning moves
 				
-				String b = position + "4";
-				if (board.getPiece(b) == null){
-					String c = position + "3";
-					if (board.getPiece(c) == null)
-					legal.add(b);	
+				String twoSpace = position + getRow() + 2;
+				if (board.getPiece(twoSpace) == null){
+					legal.add(twoSpace);
 				}
 			}
 			int normal = row+2;
@@ -62,7 +42,6 @@ public class Pawn extends ChessPiece{
 			char col	 = (char) (position.charAt(0) +1);
 			int right = row+2;
 			String c =  "" + col + right ;	
-			//System.out.println("Piece c => " + board.getPiece(c));		//attack move right
 			if(board.getPiece(c) != null) {
 				if(!(position.equals("h")) && board.getPiece(c).color.equals(Color.BLACK) )
 				legal.add(c);
@@ -75,6 +54,7 @@ public class Pawn extends ChessPiece{
 			 if(position != "a" && board.getPiece(c).color.equals(Color.BLACK))
 				legal.add(c);
 		}
+
 		}
 			if(color == Color.BLACK){
 			

@@ -25,29 +25,8 @@ public class Rook extends ChessPiece {
 	public ArrayList<String> legalMoves() {
 		ArrayList<String> legal = new ArrayList<String>();
 		
-		String position = "";
-		switch(this.column){
-		case 0: position = "a";
-		break;
-		case 1: position = "b";
-		break;
-		case 2: position = "c";
-		break;
-		case 3: position = "d";
-		break;
-		case 4: position = "e";
-		break;
-		case 5: position = "f";
-		break;
-		case 6: position = "g";
-		break;
-		case 7: position = "h";
-		break;
-		default:
-			break;
-		}
-		
-		
+		String position = toChar();
+
 		int row = this.row+1;
 		char col	 = position.charAt(0);
 		while(true){					//moving up

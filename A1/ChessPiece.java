@@ -31,29 +31,38 @@ public abstract class ChessPiece {
 		return color;
 	}
 
-	public String getPosition(){
-		String position = "";
+	public String toChar(){
+		String col = "";
 		switch(this.column){
-		case 0: position = "a";
-			break;
-		case 1: position = "b";
-			break;
-		case 2: position = "c";
-			break;
-		case 3: position = "d";
-			break;
-		case 4: position = "e";
-			break;
-		case 5: position = "f";
-			break;
-		case 6: position = "g";
-			break;
-		case 7: position = "h";
-			break;
-		default:
-			break;
+			case 0: col = "a";
+				break;
+			case 1: col = "b";
+				break;
+			case 2: col = "c";
+				break;
+			case 3: col = "d";
+				break;
+			case 4: col = "e";
+				break;
+			case 5: col = "f";
+				break;
+			case 6: col = "g";
+				break;
+			case 7: col = "h";
+				break;
+			default:
+				break;
 		}
-		position += this.row+1;
+		return col;
+  }
+  public boolean validMove(String position){
+		char column = position.charAt(0);
+		int row
+		if()
+	}
+	public String getPosition(){
+		String position = this.toChar();
+		position += this.getRow() + 1;
 		return position;
 	}
 	

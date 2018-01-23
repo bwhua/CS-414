@@ -21,30 +21,10 @@ public class Bishop extends ChessPiece{
 	public ArrayList<String> legalMoves() {
 		ArrayList<String> legal = new ArrayList<String>();
 		char columns = (char) this.column;
-		String position = "";
+		String position = toChar();
 
-		switch(this.column){
-		case 0: position = "a";
-		break;
-		case 1: position = "b";
-		break;
-		case 2: position = "c";
-		break;
-		case 3: position = "d";
-		break;
-		case 4: position = "e";
-		break;
-		case 5: position = "f";
-		break;
-		case 6: position = "g";
-		break;
-		case 7: position = "h";
-		break;
-		default:
-			break;
-		}
 		int row = this.row+1;
-		char col	 = (char) (position.charAt(0));
+		char col = (position.charAt(0));
 		while(true){
 			row += 1;												//move up right
 			col = (char) (col+1);

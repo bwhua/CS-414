@@ -10,6 +10,11 @@ public class ChessBoardTest extends Exception{
     assertEquals(null, testBoard.getPiece("a8"));
     assertEquals(null, testBoard.getPiece("h1"));
     assertEquals(null, testBoard.getPiece("h8"));
+
+
+    testBoard.initialize();
+    assertEquals(ChessPiece.Color.WHITE, testBoard.getPiece("a1").color);
+    assertEquals(ChessPiece.Color.BLACK, testBoard.getPiece("h8").color);
   }
 
 }
