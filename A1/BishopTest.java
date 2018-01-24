@@ -28,7 +28,7 @@ public class BishopTest {
     assert(legal.contains("f2"));
     assert(legal.contains("g1"));
     assert(legal.contains("e5"));
-    assert(legal.contains("g6"));
+    assert(legal.contains("f6"));
 
   }
 }

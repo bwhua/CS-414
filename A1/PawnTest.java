@@ -17,9 +17,10 @@ public class PawnTest {
     testBoard.placePiece(blackPawn, "e3");
     //todo: make sure legal moves include d5, d6, e5
     ArrayList<String> legal = testPawn.legalMoves();
+
     assertEquals(3,legal.size());
-    assert(legal.contains("d5"));
-    assert(legal.contains("d6"));
-    assert(legal.contains("e5"));
+    assert(legal.contains("d3"));
+    assert(legal.contains("d4"));
+    assert(legal.contains("e3"));
   }
 }

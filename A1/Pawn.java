@@ -31,12 +31,11 @@ public class Pawn extends ChessPiece{
 				if(row == 1 ){															//beginning moves
 
 					String b = position + "3";
-					if(board.getPiece(b) == null)
-					legal.add(b);
-					String c = position + "4";
-					if (board.getPiece(c) == null)
-						legal.add(c);
-
+					if(board.getPiece(b) == null) {
+						String c = position + "4";
+						if (board.getPiece(c) == null)
+							legal.add(c);
+					}
 
 				}
 				int normal = row+2;

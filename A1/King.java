@@ -21,6 +21,7 @@ public class King extends ChessPiece{
 		ArrayList<String> legal= new ArrayList<String>();
 		String position = getPosition();
 
+
 		return legal;
 	}
 

@@ -29,12 +29,14 @@ public class Bishop extends ChessPiece{
 			while(true){
 				row += 1;												//move up right
 				col = (char) (col+1);
-				if(row > 8 || col == 'i')
+				if(row > 8 || col == 'i') {
 					break;
-
+				}
 				String a ="" + col+ row;
 				if(board.getPiece(a) == null)							//if 1 up 1 right is null
+				{
 					legal.add(a);
+				}
 				if(board.getPiece(a) != null )	{					// if not null
 					if(color == board.getPiece(a).color)			//if they are same color
 						break;
