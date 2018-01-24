@@ -12,23 +12,23 @@ public class ChessBoard {
 	}
 
 	public void initialize(){
-		ChessBoard a = new ChessBoard();
-		ChessPiece br1 = new Rook(a, ChessPiece.Color.BLACK);
-		ChessPiece bk1 = new Knight(a, ChessPiece.Color.BLACK);
-		ChessPiece bb1 = new Bishop(a, ChessPiece.Color.BLACK);
-		ChessPiece bki = new King(a, ChessPiece.Color.BLACK);
-		ChessPiece bq = new Queen(a, ChessPiece.Color.BLACK);
-		ChessPiece br2 = new Rook(a, ChessPiece.Color.BLACK);
-		ChessPiece bk2 = new Knight(a, ChessPiece.Color.BLACK);
-		ChessPiece bb2 = new Bishop(a, ChessPiece.Color.BLACK);
-		ChessPiece bp1 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp2 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp3 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp4 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp5 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp6 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp7 = new Pawn(a, ChessPiece.Color.BLACK);
-		ChessPiece bp8 = new Pawn(a, ChessPiece.Color.BLACK);
+
+		ChessPiece br1 = new Rook(this, ChessPiece.Color.BLACK);
+		ChessPiece bk1 = new Knight(this, ChessPiece.Color.BLACK);
+		ChessPiece bb1 = new Bishop(this, ChessPiece.Color.BLACK);
+		ChessPiece bki = new King(this, ChessPiece.Color.BLACK);
+		ChessPiece bq = new Queen(this, ChessPiece.Color.BLACK);
+		ChessPiece br2 = new Rook(this, ChessPiece.Color.BLACK);
+		ChessPiece bk2 = new Knight(this, ChessPiece.Color.BLACK);
+		ChessPiece bb2 = new Bishop(this, ChessPiece.Color.BLACK);
+		ChessPiece bp1 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp2 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp3 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp4 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp5 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp6 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp7 = new Pawn(this, ChessPiece.Color.BLACK);
+		ChessPiece bp8 = new Pawn(this, ChessPiece.Color.BLACK);
 
 
 		placePiece(br1, "a8");
@@ -48,22 +48,22 @@ public class ChessBoard {
 		placePiece(bp7, "g7");
 		placePiece(bp8, "h7");
 
-		ChessPiece wr1 = new Rook(a, ChessPiece.Color.WHITE);
-		ChessPiece wk1 = new Knight(a, ChessPiece.Color.WHITE);
-		ChessPiece wb1 = new Bishop(a, ChessPiece.Color.WHITE);
-		ChessPiece wr2 = new Rook(a, ChessPiece.Color.WHITE);
-		ChessPiece wk2 = new Knight(a, ChessPiece.Color.WHITE);
-		ChessPiece wb2 = new Bishop(a, ChessPiece.Color.WHITE);
-		ChessPiece wki = new King(a, ChessPiece.Color.WHITE);
-		ChessPiece wq = new Queen(a, ChessPiece.Color.WHITE);
-		ChessPiece wp1 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp2 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp3 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp4 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp5 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp6 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp7 = new Pawn(a, ChessPiece.Color.WHITE);
-		ChessPiece wp8= new Pawn(a, ChessPiece.Color.WHITE);
+		ChessPiece wr1 = new Rook(this, ChessPiece.Color.WHITE);
+		ChessPiece wk1 = new Knight(this, ChessPiece.Color.WHITE);
+		ChessPiece wb1 = new Bishop(this, ChessPiece.Color.WHITE);
+		ChessPiece wr2 = new Rook(this, ChessPiece.Color.WHITE);
+		ChessPiece wk2 = new Knight(this, ChessPiece.Color.WHITE);
+		ChessPiece wb2 = new Bishop(this, ChessPiece.Color.WHITE);
+		ChessPiece wki = new King(this, ChessPiece.Color.WHITE);
+		ChessPiece wq = new Queen(this, ChessPiece.Color.WHITE);
+		ChessPiece wp1 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp2 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp3 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp4 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp5 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp6 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp7 = new Pawn(this, ChessPiece.Color.WHITE);
+		ChessPiece wp8= new Pawn(this, ChessPiece.Color.WHITE);
 
 		placePiece(wr1, "a1");
 		placePiece(wk1, "b1");
@@ -139,18 +139,21 @@ public class ChessBoard {
 
 	public void move(String fromPosition, String toPosition) throws IllegalMoveException{
 		try {
+			if (getPiece(fromPosition).legalMoves().contains(toPosition)) {
 
-			if (getPiece(toPosition) == null) {                                        // if no piece at toPosition
-				if (getPiece(fromPosition).legalMoves().contains(toPosition)) {
-					int row = getPiece(fromPosition).row;
-					int col = getPiece(fromPosition).column;
-					placePiece(board[row][col], toPosition);
-					board[row][col] = null;
-				}else{
-					throw new IllegalMoveException("This isn't a legal move");
-				}
-			}
-		}catch(IllegalPositionException e){System.out.println("this is an illegal move");}
+						int row = getPiece(fromPosition).row;
+						int col = getPiece(fromPosition).column;
+						System.out.println("Found: " + board[row][col]);
+						placePiece(board[row][col], toPosition);
+
+						board[row][col] = null;
+
+
+
+			}else{throw new IllegalMoveException("This isn't a legal move");}
+
+		}catch(IllegalPositionException e){System.out.println("this is an illegal position");}
+		catch(IllegalMoveException f){System.out.println("this is an illegal move");}
 
 	}
 	public String toString(){
@@ -158,7 +161,7 @@ public class ChessBoard {
 	    String upperLeft = "\u250C";
 	    String upperRight = "\u2510";
 	    String horizontalLine = "\u2500";
-	    String horizontal3 = horizontalLine + "\u3000" + horizontalLine;
+	    String horizontal3 = horizontalLine + " " + horizontalLine; // "\u3000"
 	    String verticalLine = "\u2502";
 	    String upperT = "\u252C";
 	    String bottomLeft = "\u2514";
@@ -185,7 +188,7 @@ public class ChessBoard {
 	        String midLine = "";
 	        for (int col = 0; col < 8; col++){
 	            if(board[row][col]==null) {
-	                midLine += verticalLine + " \u3000 ";
+	                midLine += verticalLine + "   "; // " \u3000 "
 	            } else {midLine += verticalLine + " "+board[row][col]+" ";}
 	        }
 	        midLine += verticalLine;
@@ -209,9 +212,10 @@ public class ChessBoard {
 			board.initialize();
 			System.out.println(board);
 			board.move("a8", "a1");
-			System.out.println(board);
+
 			board.move("c7", "c6");
 			System.out.println(board);
 		} catch(IllegalMoveException move){System.out.println("llegal Move");}
+
 	}
 }
