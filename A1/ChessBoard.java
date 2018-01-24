@@ -10,6 +10,7 @@ public class ChessBoard {
 	public ChessBoard(){
 		this.board = new ChessPiece[8][8];
 	}
+
 	public void initialize(){
 		ChessBoard a = new ChessBoard();
 		ChessPiece br1 = new Rook(a, ChessPiece.Color.BLACK);
@@ -81,58 +82,76 @@ public class ChessBoard {
 		placePiece(wp7, "g2");
 		placePiece(wp8, "h2");	
 	}
-	 ChessPiece getPiece(String position){
+
+	public boolean onBoard(String position){
+		char column = position.charAt(0);
+		int row = Integer.valueOf(position.charAt(1) + "");
+		if(column >= 'a' && column <= 'h') {//colunn is valid
+			if (row >= 1 && row <= 8) {
+				if (position.length() == 2) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public ChessPiece getPiece(String position)throws IllegalPositionException{
+
+		if(!onBoard(position)){
+			throw new IllegalPositionException("ChessPiece is not on board");
+		}
+
 		int row = (Integer.parseInt(position.substring(1))) -1;
 
 		int column =0;
 		switch(position.charAt(0)){
-		case 'a': column =0;
+			case 'a': column =0;
+				break;
+			case 'b': column =1;
 			break;
-		case 'b': column =1;
-		break;
-		case 'c': column =2;
-		break;
-		case 'd': column =3;
-		break;
-		case 'e': column =4;
-		break;
-		case 'f': column =5;
-		break;
-		case 'g': column =6;
-		break;
-		case 'h': column =7;
-		break;
-		default:
+			case 'c': column =2;
 			break;
+			case 'd': column =3;
+			break;
+			case 'e': column =4;
+			break;
+			case 'f': column =5;
+			break;
+			case 'g': column =6;
+			break;
+			case 'h': column =7;
+			break;
+			default:
+				break;
 		}
-		
 		return this.board[row][column];
 	}
 	public boolean placePiece(ChessPiece piece, String position){
-		
-		if(getPiece(position) == null ||piece.color != getPiece(position).color){
-			piece.setPosition(position);
-			board[piece.row][piece.column] = piece;
-			return true;
-		}
-		return false;
-
-	}
-	public boolean move(String fromPosition, String toPosition){
-
-		if(getPiece(fromPosition)== null)																				//if piece is not at from Position
-			return false;
-		if(getPiece(toPosition)== null){																				// if no piece at toPosition
-			if(getPiece(fromPosition).legalMoves().contains(toPosition)){
-				int row = getPiece(fromPosition).row;
-				int col = getPiece(fromPosition).column;
-				placePiece(board[row][col], toPosition);
-				board[row][col] = null;
+		try {
+			if (getPiece(position) == null || piece.color != getPiece(position).color) {
+				piece.setPosition(position);
+				board[piece.row][piece.column] = piece;
 				return true;
 			}
-		}
-
+		}catch(IllegalPositionException e ){System.out.println("You can't place a piece here");}
 		return false;
+	}
+
+	public void move(String fromPosition, String toPosition) throws IllegalMoveException{
+		try {
+
+			if (getPiece(toPosition) == null) {                                        // if no piece at toPosition
+				if (getPiece(fromPosition).legalMoves().contains(toPosition)) {
+					int row = getPiece(fromPosition).row;
+					int col = getPiece(fromPosition).column;
+					placePiece(board[row][col], toPosition);
+					board[row][col] = null;
+				}else{
+					throw new IllegalMoveException("This isn't a legal move");
+				}
+			}
+		}catch(IllegalPositionException e){System.out.println("this is an illegal move");}
+
 	}
 	public String toString(){
 	    String chess="";
@@ -185,13 +204,14 @@ public class ChessBoard {
 	}
 	
 	public static void main(String[] args) {
-	    ChessBoard board = new ChessBoard();
-	    board.initialize();
-	    System.out.println(board);
-	    board.move("a8", "a1");	    
-	    System.out.println(board);
-	    board.move("c7", "c6");
-	    System.out.println(board);
-
+		try {
+			ChessBoard board = new ChessBoard();
+			board.initialize();
+			System.out.println(board);
+			board.move("a8", "a1");
+			System.out.println(board);
+			board.move("c7", "c6");
+			System.out.println(board);
+		} catch(IllegalMoveException move){System.out.println("llegal Move");}
 	}
 }

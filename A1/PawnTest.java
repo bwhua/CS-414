@@ -12,9 +12,9 @@ public class PawnTest {
     Pawn whitePawn = new Pawn(testBoard, ChessPiece.Color.WHITE);
     Pawn blackPawn = new Pawn(testBoard, ChessPiece.Color.BLACK);
 
-    testBoard.placePiece(testPawn, "d4");
-    testBoard.placePiece(whitePawn, "c5");
-    testBoard.placePiece(blackPawn, "e5");
+    testBoard.placePiece(testPawn, "d2");
+    testBoard.placePiece(whitePawn, "c3");
+    testBoard.placePiece(blackPawn, "e3");
     //todo: make sure legal moves include d5, d6, e5
     ArrayList<String> legal = testPawn.legalMoves();
     assertEquals(3,legal.size());

@@ -55,11 +55,7 @@ public abstract class ChessPiece {
 		}
 		return col;
   }
-  public boolean validMove(String position){
-		char column = position.charAt(0);
-		int row
-		if()
-	}
+
 	public String getPosition(){
 		String position = this.toChar();
 		position += this.getRow() + 1;

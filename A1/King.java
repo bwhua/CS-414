@@ -20,8 +20,7 @@ public class King extends ChessPiece{
 	public ArrayList<String> legalMoves() {
 		ArrayList<String> legal= new ArrayList<String>();
 		String position = getPosition();
-		String
-		if()
+
 		return legal;
 	}
 
