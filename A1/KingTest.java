@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class KingTest {
 
@@ -20,10 +21,10 @@ public class KingTest {
     //todo: make sure legal moves include g4, g3, h5, h3
     ArrayList<String> legal = testKing.legalMoves();
     assertEquals(4, legal.size());
-    assert(legal.contains("g4"));
-    assert(legal.contains("g3"));
-    assert(legal.contains("h5"));
-    assert(legal.contains("h3"));
+    assertTrue(legal.contains("g4"));
+    assertTrue(legal.contains("g3"));
+    assertTrue(legal.contains("h5"));
+    assertTrue(legal.contains("h3"));
 
   }
 }

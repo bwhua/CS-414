@@ -52,7 +52,7 @@ public class King extends ChessPiece{
           legal.add(move);
       }
 
-    }catch (IllegalPositionException e){System.out.println("Illegal position for king (expected)");}
+    }catch (IllegalPositionException e){}
 
 		return legal;
 	}

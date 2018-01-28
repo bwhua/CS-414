@@ -3,6 +3,8 @@ import org.junit.Assert;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class PawnTest {
 
   @Test
@@ -19,8 +21,8 @@ public class PawnTest {
     ArrayList<String> legal = testPawn.legalMoves();
 
     assertEquals(3,legal.size());
-    assert(legal.contains("d3"));
-    assert(legal.contains("d4"));
-    assert(legal.contains("e3"));
+    assertTrue(legal.contains("d3"));
+    assertTrue(legal.contains("d4"));
+    assertTrue(legal.contains("e3"));
   }
 }

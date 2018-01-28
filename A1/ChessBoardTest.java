@@ -16,6 +16,7 @@ public class ChessBoardTest extends Exception{
       testBoard.initialize();
       assertEquals(ChessPiece.Color.WHITE, testBoard.getPiece("a1").color);
       assertEquals(ChessPiece.Color.BLACK, testBoard.getPiece("h8").color);
+
     } catch (IllegalPositionException e) {
       e.printStackTrace();
     }

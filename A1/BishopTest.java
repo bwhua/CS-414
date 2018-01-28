@@ -1,6 +1,7 @@
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -20,15 +21,15 @@ public class BishopTest {
 
     ArrayList<String> legal = testBishop.legalMoves();
     assertEquals(9, legal.size());
-    assert(legal.contains("a1"));
-    assert(legal.contains("b2"));
-    assert(legal.contains("c3"));
-    assert(legal.contains("c5"));
-    assert(legal.contains("e3"));
-    assert(legal.contains("f2"));
-    assert(legal.contains("g1"));
-    assert(legal.contains("e5"));
-    assert(legal.contains("f6"));
+    assertTrue(legal.contains("a1"));
+    assertTrue(legal.contains("b2"));
+    assertTrue(legal.contains("c3"));
+    assertTrue(legal.contains("c5"));
+    assertTrue(legal.contains("e3"));
+    assertTrue(legal.contains("f2"));
+    assertTrue(legal.contains("g1"));
+    assertTrue(legal.contains("e5"));
+    assertTrue(legal.contains("f6"));
 
   }
 }

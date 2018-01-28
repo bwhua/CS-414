@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class QueenTest {
 
   @Test
@@ -8,7 +10,7 @@ public class QueenTest {
     Queen testQueen = new Queen(testBoard, ChessPiece.Color.WHITE);
     testBoard.placePiece(testQueen, "d4");
 
-    assert(testQueen.legalMoves().isEmpty());
+    assertTrue(testQueen.legalMoves().isEmpty());
 
   }
 }
