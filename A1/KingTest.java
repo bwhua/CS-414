@@ -11,20 +11,30 @@ public class KingTest {
   @Test
   public void testLegalMoves(){
     ChessBoard testBoard = new ChessBoard();
-    King testKing = new King(testBoard, ChessPiece.Color.WHITE);
+    King whiteKing = new King(testBoard, ChessPiece.Color.WHITE);
     Pawn whitePawn = new Pawn(testBoard, ChessPiece.Color.WHITE);
+    King blackKing = new King(testBoard, ChessPiece.Color.BLACK);
     Pawn blackPawn = new Pawn(testBoard, ChessPiece.Color.BLACK);
 
-    testBoard.placePiece(testKing, "h4");
+    testBoard.placePiece(whiteKing, "h4");
     testBoard.placePiece(whitePawn, "g5");
-    testBoard.placePiece(blackPawn, "g3");
+    testBoard.placePiece(blackKing, "h3");
+    testBoard.placePiece(blackPawn, "g2");
+
     //todo: make sure legal moves include g4, g3, h5, h3
-    ArrayList<String> legal = testKing.legalMoves();
-    assertEquals(4, legal.size());
-    assertTrue(legal.contains("g4"));
-    assertTrue(legal.contains("g3"));
-    assertTrue(legal.contains("h5"));
-    assertTrue(legal.contains("h3"));
+    ArrayList<String> legalW = whiteKing.legalMoves();
+    assertEquals(4, legalW.size());
+    assertTrue(legalW.contains("g4"));
+    assertTrue(legalW.contains("g3"));
+    assertTrue(legalW.contains("h5"));
+    assertTrue(legalW.contains("g3"));
+
+    ArrayList<String> legalB = blackKing.legalMoves();
+    assertEquals(4, legalB.size());
+    assertTrue(legalB.contains("h2"));
+    assertTrue(legalB.contains("g3"));
+    assertTrue(legalB.contains("g4"));
+    assertTrue(legalB.contains("h4"));
 
   }
 }

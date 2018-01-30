@@ -62,7 +62,8 @@ public class Pawn extends ChessPiece{
 			}
 			if(color == Color.BLACK){
 
-
+				int normal = row ;
+				String a = position + normal;
 				if(row == 6 ){															//beginning moves
 
 					String b = position + "6";
@@ -72,24 +73,21 @@ public class Pawn extends ChessPiece{
 					if (board.getPiece(c) == null)
 						legal.add(c);
 
-				}
-				int normal = row ;
-				String a = position + normal;										// normal moves
-				if(board.getPiece(a) == null)
+				}else if(board.getPiece(a) == null)
 					legal.add(a);
 
 				char col	 = (char) (position.charAt(0) +1);
 				int right = row;
 				String c =  "" + col + right ;													//attack move right
 				if(board.getPiece(c) != null)
-					if(position != "h" &&board.getPiece(c).color.equals(Color.BLACK) )
+					if(position != "h" &&board.getPiece(c).color.equals(Color.WHITE) )
 						legal.add(c);
 
 				col	 = (char) (position.charAt(0) -1);
 				int left = row;
 				c =  "" + col + left ;														//attack move left
 				if(board.getPiece(c) != null)
-					if(position != "a" && board.getPiece(c).color.equals(Color.BLACK))
+					if(position != "a" && board.getPiece(c).color.equals(Color.WHITE))
 						legal.add(c);
 			}
 		}catch(IllegalPositionException e){System.out.println("Illegal position with a pawn");}

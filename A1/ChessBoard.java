@@ -34,8 +34,8 @@ public class ChessBoard {
 		placePiece(br1, "a8");
 		placePiece(bk1, "b8");
 		placePiece(bb1,"c8");
-		placePiece(bq, "d8");
-		placePiece(bki, "e8");
+		placePiece(bki, "d8");
+		placePiece(bq, "e8");
 		placePiece(bb2, "f8");
 		placePiece(bk2, "g8");
 		placePiece(br2, "h8");
@@ -68,8 +68,8 @@ public class ChessBoard {
 		placePiece(wr1, "a1");
 		placePiece(wk1, "b1");
 		placePiece(wb1,"c1");
-		placePiece(wq, "d1");
-		placePiece(wki, "e1");
+		placePiece(wki, "d1");
+		placePiece(wq, "e1");
 		placePiece(wb2, "f1");
 		placePiece(wk2, "g1");
 		placePiece(wr2, "h1");
@@ -143,7 +143,6 @@ public class ChessBoard {
 
 						int row = getPiece(fromPosition).row;
 						int col = getPiece(fromPosition).column;
-						System.out.println("Found: " + board[row][col]);
 						placePiece(board[row][col], toPosition);
 
 						board[row][col] = null;

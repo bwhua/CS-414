@@ -25,7 +25,6 @@ public class Rook extends ChessPiece {
 
 
 	public ArrayList<String> legalMoves() {
-		System.out.println(board);
 		ArrayList<String> legal = new ArrayList<String>();
 
 		String position = toChar();
